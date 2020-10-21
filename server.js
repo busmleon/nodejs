@@ -14,8 +14,8 @@ app.use(require('body-parser').json());
 var dbController = require('./controller/db-controller.js');
 app.use('/db', dbController);
 
-// app.get('/', function (req, res) {
-//   res.send("Server is up!");
-// });
+app.get('/', function (req, res) {
+  res.sendStatus(200);
+});
 
 app.listen(80);
