@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 var corsOption = {
-  origin: 'http://localhost:4200',
+  origin: process.env.FRONTEND_URL,
   optionsSuccessStatus: 200
 }
 app.use(cors(corsOption));
