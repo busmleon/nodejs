@@ -11,8 +11,8 @@ var collection;
 client.connect().then(() => {
   collection = client.db(process.env.MONGO_INITDB_DATABASE).collection('users');
   console.log('Connected to DB');
-}).catch(err => {
-  res.json({ message: err });
+}).catch(_ => {
+  console.log('Connection to DB failed!');
 });
 
 router.get('/user', keycloak.protect(['user', 'admin']), function (req, res) {
