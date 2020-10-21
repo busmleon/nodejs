@@ -19,6 +19,7 @@ router.get('/user', keycloak.protect(['user', 'admin']), function (req, res) {
   try {
     collection.find().toArray().then(users => {
       res.send(users);
+      res.sendStatus(200);
     })
   } catch (err) {
     res.json({ message: err });
@@ -27,6 +28,7 @@ router.get('/user', keycloak.protect(['user', 'admin']), function (req, res) {
 
 router.get('/admin', keycloak.protect('admin'), function (req, res) {
   res.send("Hello Admin");
+  res.sendStatus(200);
   //TODO: admin only access
 });
 module.exports = router;
