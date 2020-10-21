@@ -18,4 +18,4 @@ app.use('/db', dbController);
 //   res.send("Server is up!");
 // });
 
-app.listen(3000);
+app.listen(80);
