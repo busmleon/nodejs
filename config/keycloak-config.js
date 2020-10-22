@@ -6,15 +6,15 @@ let _keycloak;
 var keycloakConfig = {
   // clientId: 'NodeJS',
   clientId: process.env.KEYCLOAK_BACKEND_CLIENT,
-  bearerOnly: false,
+  bearerOnly: true,
   // serverUrl: 'https://admin.busmleon.de/auth',
   serverUrl: process.env.KEYCLOAK_URL,
   // realm: 'APP_REALM',
   realm: process.env.KEYCLOAK_REALM,
-  credentials: {
-    // secret: 'f84271bb-afaf-43a8-8f1e-79f10b527004'
-    secret: process.env.KEYCLOAK_BACKEND_CLIENT_SECRET
-  }
+  // credentials: {
+  //   // secret: 'f84271bb-afaf-43a8-8f1e-79f10b527004'
+  //   secret: process.env.KEYCLOAK_BACKEND_CLIENT_SECRET
+  // }
 };
 
 function initKeycloak() {
