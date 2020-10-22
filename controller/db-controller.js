@@ -16,7 +16,7 @@ client.connect().then(() => {
   console.log('Connection to DB failed!');
 });
 
-router.get('/user', keycloak.protect('user'), function (req, res) {
+router.get('/user', keycloak.protect(['user', 'admin']), function (req, res) {
   try {
     collection = database.collection('users');
     collection.find().toArray().then(users => {
