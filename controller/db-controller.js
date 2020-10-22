@@ -31,7 +31,7 @@ router.get('/admin', keycloak.protect('admin'), function (req, res) {
   try {
     collection = database.collection('admins');
     collection.find().toArray().then(admins => {
-      res.send(users);
+      res.send(admins);
     })
   } catch (err) {
     res.json({ message: err });
