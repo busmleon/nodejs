@@ -7,7 +7,7 @@ var corsOption = {
 }
 app.use(cors(corsOption));
 app.get('/', function (req, res) {
-  res.send('testNew3!!!');
+  res.send('Backend is running!');
 });
 const keycloak = require('./config/keycloak-config.js').initKeycloak();
 app.use(keycloak.middleware());
@@ -18,4 +18,4 @@ var dbController = require('./controller/db-controller.js');
 app.use('/db', dbController);
 
 
-app.listen(8000);
+app.listen(3000);
