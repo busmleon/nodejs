@@ -1,14 +1,18 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+
 var corsOption = {
   origin: process.env.FRONTEND_URL,
   optionsSuccessStatus: 200
 }
+
 app.use(cors(corsOption));
+
 app.get('/', function (req, res) {
   res.redirect(process.env.FRONTEND_URL);
 });
+
 const keycloak = require('./config/keycloak-config.js').initKeycloak();
 app.use(keycloak.middleware());
 
