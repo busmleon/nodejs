@@ -13,7 +13,7 @@ var keycloakConfig = {
   realm: process.env.KEYCLOAK_REALM,
   credentials: {
     // secret: '750bf571-c29c-417e-9757-0d1f4d11e37e'
-    secret: process.env.KEYCLOAK_BACKEND_CLIENT_SECRET
+    secret: process.env.KEYCLOAK_BACKEND_CLIENT_SECRET //TODO direkt mit richtigen SECRET aufsetzen??
   }
 };
 
