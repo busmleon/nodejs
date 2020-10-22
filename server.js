@@ -7,10 +7,10 @@ var corsOption = {
 }
 app.use(cors(corsOption));
 app.get('/', function (req, res) {
-  res.send('testNew');
+  res.send('testNew2');
 });
-// const keycloak = require('./config/keycloak-config.js').initKeycloak();
-// app.use(keycloak.middleware());
+const keycloak = require('./config/keycloak-config.js').initKeycloak();
+app.use(keycloak.middleware());
 
 // app.use(require('body-parser').json());
 
