@@ -3,6 +3,6 @@ RUN mkdir -p /opt/nodejs
 ADD package.json /opt/nodejs
 WORKDIR /opt/nodejs
 RUN npm install
-EXPOSE 80
+EXPOSE 8000
 CMD ["npm", "run", "start"]
 ADD . /opt/nodejs
