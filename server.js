@@ -10,7 +10,8 @@ var corsOption = {
 app.use(cors(corsOption));
 
 app.get('/', function (req, res) {
-  res.redirect(process.env.FRONTEND_URL);
+  res.send('Backend is running! URL to Frontend: ' + process.env.FRONTEND_URL);
+  // res.redirect(process.env.FRONTEND_URL);
 });
 
 const keycloak = require('./config/keycloak-config.js').initKeycloak();
