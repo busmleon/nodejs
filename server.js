@@ -7,15 +7,15 @@ var corsOption = {
 }
 app.use(cors(corsOption));
 app.get('/', function (req, res) {
-  res.send('testNew2');
+  res.send('testNew3!!!');
 });
 const keycloak = require('./config/keycloak-config.js').initKeycloak();
 app.use(keycloak.middleware());
 
-// app.use(require('body-parser').json());
+app.use(require('body-parser').json());
 
-// var dbController = require('./controller/db-controller.js');
-// app.use('/db', dbController);
+var dbController = require('./controller/db-controller.js');
+app.use('/db', dbController);
 
 
 app.listen(8000);
