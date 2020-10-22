@@ -1,11 +1,15 @@
 const express = require('express');
 const app = express();
-// const cors = require('cors');
-// var corsOption = {
-//   origin: process.env.FRONTEND_URL,
-//   optionsSuccessStatus: 200
-// }
-// app.use(cors(corsOption));
+const cors = require('cors');
+var corsOption = {
+  origin: process.env.FRONTEND_URL,
+  optionsSuccessStatus: 200
+}
+app.use(cors(corsOption));
+app.get('/', function (req, res) {
+  res.send('test');
+  res.sendStatus(200);
+});
 // const keycloak = require('./config/keycloak-config.js').initKeycloak();
 // app.use(keycloak.middleware());
 
@@ -14,9 +18,5 @@ const app = express();
 // var dbController = require('./controller/db-controller.js');
 // app.use('/db', dbController);
 
-app.get('/', function (req, res) {
-  res.send('test');
-  res.sendStatus(200);
-});
 
 app.listen(8000);
