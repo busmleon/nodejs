@@ -1,6 +1,6 @@
-import { Router } from 'express'
-import { MongoClient } from 'mongodb'
-var router = Router()
+const express = require('express')
+const MongoClient = require('mongodb').MongoClient
+const router = express.Router()
 const keycloak = require('../config/keycloak-config.js').getKeycloak()
 
 const uri = process.env.MONGO_CONNECTION_STRING
@@ -36,4 +36,5 @@ router.get('/admin', keycloak.protect('admin'), (_req, res) => {
     res.json({ message: err })
   }
 })
-export default router
+
+module.exports = router;

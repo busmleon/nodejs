@@ -1,5 +1,5 @@
-import { MemoryStore } from 'express-session'
-import Keycloak from 'keycloak-connect'
+const session = require('express-session')
+const Keycloak = require('keycloak-connect')
 
 let _keycloak
 
@@ -10,27 +10,25 @@ const keycloakConfig = {
   realm: process.env.KEYCLOAK_REALM,
 }
 
-function initKeycloak() {
+const initKeycloak = () => {
   if (_keycloak) {
     console.warn("Trying to init Keycloak again!")
     return _keycloak
   }
   else {
     console.log("Initializing Keycloak...")
-    var memoryStore = new MemoryStore()
+    var memoryStore = new session.MemoryStore()
     _keycloak = new Keycloak({ store: memoryStore }, keycloakConfig)
     return _keycloak
   }
 }
 
-function getKeycloak() {
+const getKeycloak = () => {
   if (!_keycloak) {
     console.error('Keycloak has not been initialized. Please call init first.')
   }
   return _keycloak
 }
 
-export default {
-  initKeycloak,
-  getKeycloak
-}
+exports.initKeycloak = initKeycloak
+exports.getKeycloak = getKeycloak
