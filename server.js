@@ -24,4 +24,4 @@ app.get('/', (_req, res) => {
 // const dbController = require('./controller/db-controller.js')
 // app.use('/db', dbController)
 
-app.listen(8080)
+app.listen(3000)
