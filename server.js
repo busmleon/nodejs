@@ -10,7 +10,8 @@ const cors = require('cors')
 // app.use(cors(corsOption))
 
 app.get('/', (_req, res) => {
-  res.send('Backend is running!')
+  // res.send('Backend is running!')
+  res.sendStatus(200)
   // res.send('Backend is running! URL to Frontend: ' + process.env.FRONTEND_URL)
   // res.redirect(200, process.env.FRONTEND_URL)
   // res.redirect(process.env.FRONTEND_URL)
